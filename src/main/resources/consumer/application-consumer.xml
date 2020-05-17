@@ -7,9 +7,17 @@
        http://www.springframework.org/schema/context
        http://www.springframework.org/schema/context/spring-context.xsd" default-lazy-init="false">
 
-    <!-- 配置包扫描 -->
     <context:component-scan base-package="com.netty.rpc"/>
 
+    <!-- 加载配置文件 -->
     <context:property-placeholder location="classpath:config/conf.properties"/>
+
+    <bean id="serviceDiscovery" class="com.netty.rpc.registry.ServiceDiscovery">
+        <constructor-arg name="registryAddress" value="${registry.address}"/>
+    </bean>
+
+    <bean id="rpcProxy" class="com.netty.rpc.client.RpcProxy">
+        <constructor-arg name="serviceDiscovery" ref="serviceDiscovery"/>
+    </bean>
 
 </beans>
