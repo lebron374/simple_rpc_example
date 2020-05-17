@@ -3,7 +3,6 @@ package com.netty.rpc.client;
 import com.netty.rpc.bean.RpcRequest;
 import com.netty.rpc.bean.RpcResponse;
 import com.netty.rpc.registry.ServiceDiscovery;
-import io.netty.channel.SimpleChannelInboundHandler;
 import net.sf.cglib.proxy.InvocationHandler;
 import net.sf.cglib.proxy.Proxy;
 import org.slf4j.Logger;
@@ -16,7 +15,14 @@ public class RpcProxy {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(RpcProxy.class);
 
+    /**
+     * provider提供的ip:port地址
+     */
     private String serverAddress;
+
+    /**
+     * 服务发现服务
+     */
     private ServiceDiscovery serviceDiscovery;
 
     public RpcProxy(ServiceDiscovery serviceDiscovery) {
