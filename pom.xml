@@ -19,7 +19,7 @@
         <!-- slf4j-api日志接口版本 -->
         <slf4j-api.version>1.7.21</slf4j-api.version>
         <!-- logback日志版本 -->
-        <logback.version>1.1.1</logback.version>
+        <logback.version>1.2.0</logback.version>
         <!-- springframework version -->
         <springframework.version>4.3.12.RELEASE</springframework.version>
         <!-- netty version -->
